@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>App</title>
+    <style>
+        .columns-container {
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+        }
+        .customers-column {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+<div class="columns-container">
+    <div class="customers-column">
+        <p>Customers:</p>
+        <table>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Number</td>
+        </tr>
+        {{#each customers}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.age}}</td>
+                <td>{{this.number}}</td>
+            </tr>
+        {{/each}}
+        </table>
+    </div>
+</div>
+</body>
+</html>

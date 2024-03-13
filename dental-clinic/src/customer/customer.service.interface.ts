@@ -4,5 +4,6 @@ export interface CustomerServiceInterface {
     findAll(): Promise<Customer[]>
     findOne(id: number): Promise<Customer | null>
     create(customer: object): Promise<void>
+    edit(id:number, customer: object): Promise<void>
     remove(id: number): Promise<void>
 }

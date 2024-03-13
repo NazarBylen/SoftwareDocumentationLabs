@@ -17,9 +17,18 @@ export class CustomerService implements CustomerServiceInterface {
         return this.customerRepository.findOneBy({ id });
     }
 
-    async create(client: object): Promise<void> {
-        const newClient = await this.customerRepository.create(client);
-        await this.customerRepository.save(newClient);
+    async create(customer: object): Promise<void> {
+        const newCustomer = await this.customerRepository.create(customer);
+        await this.customerRepository.save(newCustomer);
+    }
+
+    async edit(id: number, customer: object): Promise<void> {
+        await this.customerRepository.save(
+            {
+                id: id,
+                ...customer
+            }
+        );
     }
 
     async remove(id: number): Promise<void> {
