@@ -16,6 +16,11 @@ import { ServiceInsertModule } from "./csvModules/service.insert.module";
 import { PaymentInsertModule } from "./csvModules/payment.insert.module";
 import { AppointmentInsertModule } from "./csvModules/appointment.insert.module";
 import { CustomerModule } from './customer/customer.module'
+import { ClinicModule } from './clinic/clinic.module'
+import { DoctorModule } from './doctor/doctor.module'
+import { AppointmentModule } from './appointment/appointment.module'
+import { PaymentModule } from './payment/payment.module'
+import { ServiceModule } from './service/service.module'
 
 @Module({
   imports: [
@@ -29,7 +34,7 @@ import { CustomerModule } from './customer/customer.module'
       entities: [ Customer, Doctor, Clinic, Appointment, Service, Payment ],
       synchronize: true,
     }),
-    ClinicInsertModule, CustomerInsertModule, DoctorInsertModule, PaymentInsertModule, ServiceInsertModule, AppointmentInsertModule, CustomerModule,
+    ClinicInsertModule, CustomerInsertModule, DoctorInsertModule, PaymentInsertModule, ServiceInsertModule, AppointmentInsertModule, CustomerModule, ClinicModule, DoctorModule, AppointmentModule, PaymentModule, ServiceModule
   ],
   controllers: [AppController],
   providers: [AppService],
