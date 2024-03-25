@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>App</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0 100px;
+        }
+        .columns-container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+        .doctors-column {
+            display: flex;
+            flex-direction: column;
+        }
+        .text {
+            color: darkcyan;
+            font-family: "Days One", sans-serif;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="columns-container">
+        <div class="doctors-column">
+            <p>Doctors:</p>
+            <table>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Education</td>
+                <td>Number</td>
+                <td>Type</td>
+            </tr>
+            {{#each doctors}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.education}}</td>
+                    <td>{{this.number}}</td>
+                    <td>{{this.type}}</td>
+                </tr>
+            {{/each}}
+            </table>
+        </div>
+        <a class="text" href="/api">Home</a>
+    </div>
+</body>
+</html>

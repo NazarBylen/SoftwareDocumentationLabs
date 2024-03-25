@@ -3,39 +3,79 @@
 <head>
     <meta charset="utf-8" />
     <title>App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
     <style>
-        .columns-container {
-            display: flex;
-            flex-direction: row;
-            gap: 50px;
+        html, body {
+            margin: 0;
+            padding: 0 100px;
         }
-        .customers-column {
+        .global-container {
             display: flex;
             flex-direction: column;
+            gap: 100px;
+        }
+        .text {
+            color: darkcyan;
+            font-family: "Days One", sans-serif;
+            font-size: 24px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        .head-text {
+            color: darkcyan;
+            font-family: "Days One", sans-serif;
+            font-size: 48px;
+        }
+        .clinic-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-end;
+            gap: 100px;
+        }
+        .promo-img {
+            height: 300px;
+            width: 300px;
+            border: none 2px;
+            border-radius: 5px;
+        }
+        .customer-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-end;
+            gap: 100px;
         }
     </style>
 </head>
 <body>
-<div class="columns-container">
-    <div class="customers-column">
-        <p>Customers:</p>
-        <table>
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Age</td>
-            <td>Number</td>
-        </tr>
-        {{#each customers}}
-            <tr>
-                <td>{{this.id}}</td>
-                <td>{{this.name}}</td>
-                <td>{{this.age}}</td>
-                <td>{{this.number}}</td>
-            </tr>
-        {{/each}}
-        </table>
+    <div class="global-container">
+        <div class="header">
+            <a class="text" href="#">Visit Help Center</a>
+            <div class="head-text">Health Cabinet</div>
+            <a class="text" href="#">Rate Services</a>
+        </div>
+        <div class="clinic-list">
+            <img src="./cliniclist.png" class="promo-img" alt="Image of Clinic"/>
+            <a class="text" href="/api/clinic">List Of Clinics</a>
+        </div>
+        <div class="customer-list">
+            <img src="./customerlist.png" class="promo-img" alt="Image of Customer"/>
+            <a class="text" href="/api/customer">List Of Customers</a>
+        </div>
+        <div class="doctor-list">
+            <img src="./ourDoctors.png" class="promo-img" alt="Image of Doctor"/>
+            <a class="text" href="/api/doctor">Our Doctors</a>
+        </div>
+        <div class="appointment-list">
+            <img src="./appointments.png" class="promo-img" alt="Image of Doctor"/>
+            <a class="text" href="/api/appointment">Your Appointments</a>
+        </div>
     </div>
-</div>
 </body>
 </html>

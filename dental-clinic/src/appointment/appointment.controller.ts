@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, Inject, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Inject, Param, Patch, Post, Render } from '@nestjs/common';
 import { Appointment } from '../entities/appointment.entity';
 import { AppointmentService } from './appointment.service';
 import { AppointmentControllerInterface } from "./appointment.controller.interface";
@@ -9,8 +9,10 @@ export class AppointmentController implements AppointmentControllerInterface{
     private appointmentService: AppointmentService
 
     @Get()
-    findAll(): Promise<Appointment[]> {
-        return this.appointmentService.findAll();
+    @Render('appointments')
+    async findAll(): Promise<{ appointments: Appointment[] }> {
+        const appointments = await this.appointmentService.findAll()
+        return { appointments };
     }
 
     @Get(':id')

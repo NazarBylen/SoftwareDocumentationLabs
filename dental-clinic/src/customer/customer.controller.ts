@@ -9,7 +9,7 @@ export class CustomerController implements CustomerControllerInterface{
     private customerService: CustomerService
 
     @Get()
-    @Render('index')
+    @Render('customers')
     async findAll(): Promise<{ customers: Customer[] }> {
         const customers = await this.customerService.findAll()
         return { customers };
@@ -21,7 +21,7 @@ export class CustomerController implements CustomerControllerInterface{
     }
 
     @Post()
-    create(@Body() customer: object): Promise<void> {
+    async create(@Body() customer: object): Promise<void> {
         return this.customerService.create(customer);
     }
 

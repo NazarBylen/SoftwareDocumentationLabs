@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, Inject, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Inject, Param, Patch, Post, Render } from '@nestjs/common';
 import { Doctor } from '../entities/doctor.entity';
 import { DoctorService } from './doctor.service';
 import { DoctorControllerInterface } from "./doctor.controller.interface";
@@ -9,8 +9,10 @@ export class DoctorController implements DoctorControllerInterface{
     private doctorService: DoctorService
 
     @Get()
-    findAll(): Promise<Doctor[]> {
-        return this.doctorService.findAll();
+    @Render('doctors')
+    async findAll(): Promise<{ doctors: Doctor[] }> {
+        const doctors = await this.doctorService.findAll()
+        return { doctors };
     }
 
     @Get(':id')

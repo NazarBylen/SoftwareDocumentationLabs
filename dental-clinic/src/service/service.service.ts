@@ -10,7 +10,9 @@ export class ServiceService implements ServiceServiceInterface {
     private serviceRepository: Repository<Service>
 
     findAll(): Promise<Service[]> {
-        return this.serviceRepository.find();
+        return this.serviceRepository.find({
+            relations: ['doctor', 'clinic']
+        });
     }
 
     findOne(id: number): Promise<Service | null> {

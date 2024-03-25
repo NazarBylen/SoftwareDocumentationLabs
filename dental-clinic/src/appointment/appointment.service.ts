@@ -10,7 +10,10 @@ export class AppointmentService implements AppointmentServiceInterface {
     private appointmentRepository: Repository<Appointment>
 
     findAll(): Promise<Appointment[]> {
-        return this.appointmentRepository.find();
+        return this.appointmentRepository.find({
+                relations: ['customer', 'doctor']
+            }
+        );
     }
 
     findOne(id: number): Promise<Appointment | null> {

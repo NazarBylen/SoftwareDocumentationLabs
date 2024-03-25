@@ -10,7 +10,9 @@ export class PaymentService implements PaymentServiceInterface {
     private paymentRepository: Repository<Payment>
 
     findAll(): Promise<Payment[]> {
-        return this.paymentRepository.find();
+        return this.paymentRepository.find({
+            relations: ['customer', 'clinic']
+        });
     }
 
     findOne(id: number): Promise<Payment | null> {

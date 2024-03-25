@@ -9,11 +9,11 @@ export class CustomerService implements CustomerServiceInterface {
     @InjectRepository(Customer)
     private customerRepository: Repository<Customer>
 
-    findAll(): Promise<Customer[]> {
+    async findAll(): Promise<Customer[]> {
         return this.customerRepository.find();
     }
 
-    findOne(id: number): Promise<Customer | null> {
+    async findOne(id: number): Promise<Customer | null> {
         return this.customerRepository.findOneBy({ id });
     }
 
